@@ -1,0 +1,22 @@
+<h2>Category description</h2>
+<ul>
+    <li>{{category.category_name}}</li>
+    <li>{{category.description}}</li>
+</ul>
+<table align="center">
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">recruitment date</th>
+        <th scope="col">Telephone number</th>
+        <th scope="col">Category</th>
+
+    </tr>
+    <tr *ngFor="let coursier of coursiers" >
+        <td >{{coursier.name}}</td>
+        <td >{{coursier.adress}}</td>
+        <td >{{coursier.recruitment_date}}</td>
+        <td >{{coursier.Num_tel}}</td>
+        <td >{{coursier.category_name}}</td>
+    </tr>
+</table>

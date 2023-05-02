@@ -1,0 +1,13 @@
+<h1>Categories</h1>
+
+<table align="center">
+    <tr>
+        <th scope="col">Categories</th>
+        <th scope="col">Delivery men</th>
+
+    </tr>
+    <tr *ngFor="let category of categories" >
+        <th scope="row" (click)="viewCategory(category)">{{category.category_name}}</th>
+        <td (click)="viewCoursierBycategory(category)">Coursiers</td>
+    </tr>
+</table> 
