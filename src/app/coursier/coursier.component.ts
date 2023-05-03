@@ -41,16 +41,6 @@ export class CoursierComponent {
     )
   }
 
-  openForm(): void{
-    this.routers.navigate(['coursiers']);
-    this.addCoursierForm = true;
-  }
-  addCoursier(): void{
-    this.deliverymenService.addCoursier(this.coursier).subscribe(() => {
-      this.addCoursierForm = false;
-      this.coursier = {name:'', adress:'', recruitment_date:'', Num_tel:'', category_name: ''};
-    });
-  }
 
   getCoursier(coursier: any) {
     this.selectedCoursier = coursier;
@@ -70,5 +60,6 @@ export class CoursierComponent {
       console.log(coursier);
       this.modifyCoursierForm = false;
     });
+    this.routers.navigate(['coursiers/list'])
   }
 }

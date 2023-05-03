@@ -31,4 +31,7 @@ export class DashboardComponent {
     let category_name = category.category_name;
     this.router.navigate(['categories',category_name,'coursiers'])
   }
+  newCoursier(): void{
+    this.router.navigate(['coursiers']);
+  }
 }

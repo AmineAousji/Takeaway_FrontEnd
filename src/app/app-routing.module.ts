@@ -5,13 +5,15 @@ import { CoursierComponent } from './coursier/coursier.component';
 import { OrdersComponent } from './orders/orders.component';
 import { UsersComponent } from './users/users.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { NewcoursierComponent } from './newcoursier/newcoursier.component';
+
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full' },
   {path: 'login', component: UsersComponent},
   {path: 'categories/list', component: DashboardComponent},
   {path: 'coursiers/list', component: CoursierComponent},
-  {path: 'coursiers', component: CoursierComponent},
+  {path: 'coursiers', component: NewcoursierComponent},
   {path: 'orders', component: OrdersComponent},
   {path: 'categories/:id', component: CategoriesComponent},
   {path: 'categories/:id/coursiers', component: CategoriesComponent}

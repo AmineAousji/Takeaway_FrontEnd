@@ -16,6 +16,7 @@ import { CoursierComponent } from './coursier/coursier.component';
 import { OrdersComponent } from './orders/orders.component';
 import { UsersComponent } from './users/users.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { NewcoursierComponent } from './newcoursier/newcoursier.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { CategoriesComponent } from './categories/categories.component';
     CoursierComponent,
     OrdersComponent,
     UsersComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    NewcoursierComponent
   ],
   imports: [
     BrowserModule,
