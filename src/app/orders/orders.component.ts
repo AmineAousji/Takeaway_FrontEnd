@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-orders',
   templateUrl: './orders.component.html',
-  styleUrls: ['../deliverymen/deliverymen.component.css']
+  styleUrls: ['../coursier/coursier.component.css']
 })
 export class OrdersComponent {
   coursiers : Coursiers[] = []

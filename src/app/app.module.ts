@@ -12,7 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule} from '@angular/material/button'
 import { FormsModule } from '@angular/forms';
-import { DeliverymenComponent } from './deliverymen/deliverymen.component';
+import { CoursierComponent } from './coursier/coursier.component';
 import { OrdersComponent } from './orders/orders.component';
 import { UsersComponent } from './users/users.component';
 import { CategoriesComponent } from './categories/categories.component';
@@ -22,7 +22,7 @@ import { CategoriesComponent } from './categories/categories.component';
   declarations: [
     AppComponent,
     DashboardComponent,
-    DeliverymenComponent,
+    CoursierComponent,
     OrdersComponent,
     UsersComponent,
     CategoriesComponent

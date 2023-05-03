@@ -7,11 +7,11 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-deliverymen',
-  templateUrl: './deliverymen.component.html',
-  styleUrls: ['./deliverymen.component.css']
+  selector: 'app-coursier',
+  templateUrl: './coursier.component.html',
+  styleUrls: ['./coursier.component.css']
 })
-export class DeliverymenComponent {
+export class CoursierComponent {
   coursiers : Coursiers[] = []
   categories: Category[] = []
   addCoursierForm: boolean = false;
