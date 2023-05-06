@@ -6,6 +6,8 @@ import { OrdersComponent } from './orders/orders.component';
 import { UsersComponent } from './users/users.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { NewcoursierComponent } from './newcoursier/newcoursier.component';
+import { NeworderComponent } from './neworder/neworder.component';
+
 
 
 const routes: Routes = [
@@ -14,7 +16,8 @@ const routes: Routes = [
   {path: 'categories/list', component: DashboardComponent},
   {path: 'coursiers/list', component: CoursierComponent},
   {path: 'coursiers', component: NewcoursierComponent},
-  {path: 'orders', component: OrdersComponent},
+  {path: 'orders', component: NeworderComponent},
+  {path: 'orders/list', component: OrdersComponent},
   {path: 'categories/:id', component: CategoriesComponent},
   {path: 'categories/:id/coursiers', component: CategoriesComponent}
 

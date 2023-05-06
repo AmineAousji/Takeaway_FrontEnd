@@ -21,7 +21,8 @@ export class OrdersComponent {
     adress_restaurant: '', 
     price: parseFloat(''), 
     distance: parseFloat(''),
-    coursier_id: parseFloat('') }
+    coursier_id: ''
+   }
 
   constructor (
     private orderService : OrdersService,

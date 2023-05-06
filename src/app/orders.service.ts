@@ -9,7 +9,7 @@ export class Orders{
   "adress_restaurant": string;
   "price": number;
   "distance": number;
-  "coursier_id": number;
+  "coursier_id": string;
 }
 
 @Injectable({
@@ -26,6 +26,13 @@ export class OrdersService {
       'Authorization' : `Bearer ${localStorage.getItem('token')}`
     })
     return this.http.get(this.baseUrl + 'orders/list',{headers:headers});
+  }
+  addOrder(order: any): Observable <any>{
+    const headers = new HttpHeaders({
+      'Content-Type' : 'application/json',
+      'Authorization' : `Bearer ${localStorage.getItem('token')}`
+    })
+    return this.http.post(this.baseUrl + 'orders/', order, {headers:headers});
   }
   
 }

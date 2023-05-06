@@ -34,4 +34,8 @@ export class DashboardComponent {
   newCoursier(): void{
     this.router.navigate(['coursiers']);
   }
+
+  newOrder(): void{
+    this.router.navigate(['orders']);
+  }
 }

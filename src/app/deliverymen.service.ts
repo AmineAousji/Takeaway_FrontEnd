@@ -10,6 +10,15 @@ export class Coursiers{
   "Num_tel": string;
   "category_name": string;
 }
+export class CoursiersOrder{
+  "coursier_id": number;
+  "name": string;
+  "adress": string;
+  "recruitment_date": string;
+  "Num_tel": string;
+  "category_name": string;
+}
+
 
 @Injectable({
   providedIn: 'root'
