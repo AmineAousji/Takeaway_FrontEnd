@@ -34,5 +34,13 @@ export class OrdersService {
     })
     return this.http.post(this.baseUrl + 'orders/', order, {headers:headers});
   }
+
+  modifyOrder(order_id: number, order: any): Observable<any>{
+    return this.http.put(this.baseUrl + 'orders/' + order_id, order);
+  }
+
+  deleteOrder(order_id: number, order: any): Observable<any>{
+    return this.http.delete(this.baseUrl + 'orders/' +  order_id, order);
+  }
   
 }

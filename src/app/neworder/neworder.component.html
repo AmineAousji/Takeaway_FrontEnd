@@ -1,5 +1,7 @@
-<h2>Ajouter une commande :</h2>
-<div>
+<h2 class="div-h2-neworder">Ajouter une commande :</h2>
+
+
+<div class="div-neworder">
   <form (ngSubmit)="addOrder()">
     <label>Customer name :</label>
     <input [(ngModel)]="order.name_customer" name="name_customer" required>

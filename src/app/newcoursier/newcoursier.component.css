@@ -57,4 +57,16 @@ div {
     margin-top: 5px;
     font-size: 0.8em;
   }
-  
+.div-h2{
+    color: black;
+    text-align: center;
+    height: 1vh;
+    margin-top: 2cm;
+}
+
+.div-h2-neworder{
+  color: black;
+  text-align: center;
+  height: 18vh;
+  margin-top: 2cm;
+}

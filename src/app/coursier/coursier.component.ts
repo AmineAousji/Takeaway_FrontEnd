@@ -14,7 +14,6 @@ import { Router } from '@angular/router';
 export class CoursierComponent {
   coursiers : Coursiers[] = []
   categories: Category[] = []
-  addCoursierForm: boolean = false;
   modifyCoursierForm: boolean = false;
   delOrMod: boolean = false;
   selectedCoursier: any = {};
@@ -23,7 +22,6 @@ export class CoursierComponent {
   constructor (
     private categoryService : CategoryService,
     private deliverymenService : DeliverymenService, 
-    private router:ActivatedRoute,
     private routers:Router){}
 
   ngOnInit() {
@@ -40,7 +38,6 @@ export class CoursierComponent {
       }
     )
   }
-
 
   getCoursier(coursier: any) {
     this.selectedCoursier = coursier;

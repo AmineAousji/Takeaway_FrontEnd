@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Orders, OrdersService} from '../orders.service'
-import{ Coursiers, DeliverymenService} from '../deliverymen.service';
+import{ Coursiers, CoursiersOrder, DeliverymenService} from '../deliverymen.service';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 @Component({
@@ -9,9 +9,10 @@ import { Router } from '@angular/router';
   styleUrls: ['../coursier/coursier.component.css']
 })
 export class OrdersComponent {
-  coursiers : Coursiers[] = []
+  coursiers : CoursiersOrder[] = []
   orders: Orders[] = []
-
+  modifyOrderForm: boolean = false;
+  delOrMod: boolean = false;
   selectedOrder: any = {};
 
   order: Orders ={
@@ -27,7 +28,6 @@ export class OrdersComponent {
   constructor (
     private orderService : OrdersService,
     private deliverymenService : DeliverymenService, 
-    private router:ActivatedRoute,
     private routers:Router){}
 
     ngOnInit() {
@@ -37,6 +37,33 @@ export class OrdersComponent {
           console.log(this.orders);
         }
       )
+      this.deliverymenService.getCoursierList().subscribe(
+        data => {
+          this.coursiers = data;
+          console.log(this.coursiers);
+        }
+      )
     }
+
+    getOrder(order: any) {
+      this.selectedOrder = order;
+      this.modifyOrderForm = true;
+      console.log(this.selectedOrder.order_id);
+    }
+    updateOrder(order:any): void{
+      this.orderService.modifyOrder(order.order_id, order).subscribe(() => {
+        console.log(order);
+        this.modifyOrderForm = false;
+      });
+    }
+
+    deleteOrder(order:any): void{
+      this.orderService.deleteOrder(order.order_id, order).subscribe(() => {
+        console.log(order);
+        this.modifyOrderForm = false;
+      });
+      this.routers.navigate(['orders/list'])
+    }
+  
 
 }
