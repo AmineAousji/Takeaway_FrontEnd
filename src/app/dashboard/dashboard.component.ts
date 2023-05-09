@@ -38,4 +38,11 @@ export class DashboardComponent {
   newOrder(): void{
     this.router.navigate(['orders']);
   }
+  newUser(){
+    this.router.navigate(['users']);
+  }
+
+  newCategory():void{
+    this.router.navigate(['categories']);
+  }
 }

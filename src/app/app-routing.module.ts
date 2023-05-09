@@ -7,13 +7,17 @@ import { UsersComponent } from './users/users.component';
 import { CategoriesComponent } from './categories/categories.component';
 import { NewcoursierComponent } from './newcoursier/newcoursier.component';
 import { NeworderComponent } from './neworder/neworder.component';
+import { NewuserComponent } from './newuser/newuser.component';
+import { NewcategoryComponent } from './newcategory/newcategory.component';
 
 
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full' },
   {path: 'login', component: UsersComponent},
+  {path: 'users', component: NewuserComponent},
   {path: 'categories/list', component: DashboardComponent},
+  {path: 'categories', component: NewcategoryComponent},
   {path: 'coursiers/list', component: CoursierComponent},
   {path: 'coursiers', component: NewcoursierComponent},
   {path: 'orders', component: NeworderComponent},
