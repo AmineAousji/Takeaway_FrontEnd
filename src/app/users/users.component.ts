@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import {User, UserLogin, UserService} from '../user.service'
+import {AuthserviceService} from '../authservice.service'
 
 @Component({
   selector: 'app-users',
@@ -11,7 +12,7 @@ export class UsersComponent {
   userLogin = new UserLogin();
   user = new User();
 
-  constructor(private userService: UserService, private router: Router ) {}
+  constructor(private userService: UserService, private router: Router, private authService: AuthserviceService ) {}
   
   LoginUser( login : string, password : string){
     this.userLogin.login = login;
@@ -24,6 +25,7 @@ export class UsersComponent {
       if (data){
         this.user = data
         this.userService.login(this.user).subscribe(data =>{
+          this.authService.isLoggedIn = true;
           console.log(data.token);
           localStorage.setItem('token', data.token);
           console.log(localStorage)

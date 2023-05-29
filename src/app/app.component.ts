@@ -1,5 +1,7 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { AuthserviceService } from './authservice.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -8,14 +10,22 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  @ViewChild('sidenav', { static: true }) sidenav!: MatSidenav;
+  @ViewChild('sidenav') sidenav!: MatSidenav;
   
-  constructor() {
+  constructor(private authService: AuthserviceService, private router: Router) {}
+
+  get isLoggedIn(): boolean {
+    return this.authService.isLoggedIn;
   }
 
   ngOnInit() {
     this.sidenav.mode = 'side';
     this.sidenav.open();
+  }
+
+  logout() {
+    this.authService.logout();
+    this.router.navigate(['/login']);
   }
 
   toggle() {

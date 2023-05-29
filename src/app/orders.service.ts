@@ -40,6 +40,7 @@ export class OrdersService {
   }
 
   deleteOrder(order_id: number, order: any): Observable<any>{
+    
     return this.http.delete(this.baseUrl + 'orders/' +  order_id, order);
   }
   

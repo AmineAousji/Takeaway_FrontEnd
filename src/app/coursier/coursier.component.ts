@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Category, CategoryService } from '../category.service';
 import{ Coursiers, DeliverymenService} from '../deliverymen.service';
-import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
 

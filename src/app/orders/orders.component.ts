@@ -64,6 +64,5 @@ export class OrdersComponent {
       });
       this.routers.navigate(['orders/list'])
     }
-  
 
 }

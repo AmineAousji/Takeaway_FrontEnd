@@ -20,6 +20,7 @@ import { NewcoursierComponent } from './newcoursier/newcoursier.component';
 import { NeworderComponent } from './neworder/neworder.component';
 import { NewcategoryComponent } from './newcategory/newcategory.component';
 import { NewuserComponent } from './newuser/newuser.component';
+import { AuthserviceService } from './authservice.service';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { NewuserComponent } from './newuser/newuser.component';
     NewcoursierComponent,
     NeworderComponent,
     NewcategoryComponent,
-    NewuserComponent
+    NewuserComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,7 @@ import { NewuserComponent } from './newuser/newuser.component';
     FormsModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [AuthserviceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
