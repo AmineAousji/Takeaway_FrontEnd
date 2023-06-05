@@ -11,6 +11,7 @@
         <th scope="col">Coursier ID</th>
         <th scope="col">Modify</th>
         <th scope="col">Delete</th>
+        <th scope="col">Assign an order</th>
 
     </tr>
     <tr *ngFor="let order of orders" >
@@ -23,6 +24,9 @@
         <td >{{order.coursier_id}}</td>
         <td ><button (click)="getOrder(order); delOrMod = true">Modifier</button></td>
         <td ><button (click)="getOrder(order); delOrMod = false">Delete</button></td>
+        <td ><button [disabled]="order.coursier_id" (click)="Assignments(order)">
+            {{order.coursier_id ? 'Already assigned' : 'Assign'}}
+          </button></td>
     </tr>
 </table>
 

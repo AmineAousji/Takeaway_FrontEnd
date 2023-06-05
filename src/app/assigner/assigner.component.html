@@ -1,0 +1,25 @@
+<h2>Order description</h2>
+<ul>
+  <li><span class="label">Customer:</span> {{selectedOrder.customer}}</li>
+  <li><span class="label">Restaurant:</span> {{selectedOrder.restaurant}}</li>
+  <li><span class="label">Price:</span> {{selectedOrder.price}} </li>
+  <li><span class="label">Distance:</span> {{selectedOrder.distance}} </li>
+</ul>
+
+<table align="center">
+  <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Telephone number</th>
+      <th scope="col">Category</th>
+      <th scope="col">Select</th>
+      
+
+  </tr>
+  <tr *ngFor="let coursier of coursiers" >
+      <td >{{coursier.name}}</td>
+      <td >{{coursier.Num_tel}}</td>
+      <td >{{coursier.category_name}}</td>
+      <td ><button (click)="assignOrder(selectedOrder ,coursier)">Select</button></td>
+     
+  </tr>
+</table>

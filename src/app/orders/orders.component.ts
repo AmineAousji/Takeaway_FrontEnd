@@ -14,6 +14,8 @@ export class OrdersComponent {
   modifyOrderForm: boolean = false;
   delOrMod: boolean = false;
   selectedOrder: any = {};
+  coursierId : number = 0;
+  
 
   order: Orders ={
     name_customer: '', 
@@ -63,6 +65,21 @@ export class OrdersComponent {
         this.modifyOrderForm = false;
       });
       this.routers.navigate(['orders/list'])
+    }
+
+    Assignments(order: any): void{
+      this.selectedOrder = order;
+      console.log(this.selectedOrder)
+      this.routers.navigate(['orders/assign'], {
+         queryParams: { 
+          order_id: this.selectedOrder.order_id, 
+          customer: this.selectedOrder.name_customer, 
+          restaurant: this.selectedOrder.name_restaurant,
+          customer_address: this.selectedOrder.adress_customer,
+          restaurant_address: this.selectedOrder.adress_restaurant,
+          price: this.selectedOrder.price,
+          distance: this.selectedOrder.distance   } });
+      
     }
 
 }

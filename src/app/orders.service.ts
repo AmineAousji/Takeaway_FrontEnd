@@ -43,5 +43,12 @@ export class OrdersService {
     
     return this.http.delete(this.baseUrl + 'orders/' +  order_id, order);
   }
+
+  assignOrder(order_id: number, order: any, coursier_id: number){
+
+    return this.http.put(this.baseUrl + 'orders/' + order_id + '/assign/' + coursier_id, order)
+  }
+
+  
   
 }

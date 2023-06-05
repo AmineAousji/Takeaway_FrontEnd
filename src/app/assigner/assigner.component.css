@@ -1,0 +1,50 @@
+h2{
+    color: black;
+}
+ul {
+    color: black;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  li {
+    color: black;
+    margin-bottom: 8px;
+  }
+  
+  h2 {
+    margin-bottom: 16px;
+  }
+
+  table {
+    border-collapse: collapse;
+    border: 2px solid rgb(200, 200, 200);
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+}
+  
+td,
+th {
+    border: 1px solid black;
+    padding: 10px;
+}
+
+td {
+    text-align: center;
+    color: #000000;
+}
+
+th[scope='col'] {
+    background-color: darkslateblue;
+    color: #000000;
+}
+
+th[scope='row'] {
+    background-color: #bfc2f0;
+}

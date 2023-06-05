@@ -9,6 +9,7 @@ import { NewcoursierComponent } from './newcoursier/newcoursier.component';
 import { NeworderComponent } from './neworder/neworder.component';
 import { NewuserComponent } from './newuser/newuser.component';
 import { NewcategoryComponent } from './newcategory/newcategory.component';
+import { AssignerComponent } from './assigner/assigner.component';
 
 
 
@@ -22,8 +23,10 @@ const routes: Routes = [
   {path: 'coursiers', component: NewcoursierComponent},
   {path: 'orders', component: NeworderComponent},
   {path: 'orders/list', component: OrdersComponent},
+  {path: 'orders/assign', component: AssignerComponent},
   {path: 'categories/:id', component: CategoriesComponent},
   {path: 'categories/:id/coursiers', component: CategoriesComponent}
+  
 
 ];
 
