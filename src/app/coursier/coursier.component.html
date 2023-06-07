@@ -22,32 +22,31 @@
     </tr>
 </table>
 
-<div class ="div-h2" *ngIf="modifyCoursierForm">
+<div class="div-h2" *ngIf="modifyCoursierForm">
     <h2>Informations d'un coursier :</h2>
 </div>
 
 <div *ngIf="modifyCoursierForm">
+    <form (ngSubmit)="getCoursier(selectedCoursier)">
+        <label>Nom :</label>
+        <input [(ngModel)]="selectedCoursier.name" name="nom" [disabled]="!delOrMod" required>
 
-  <form (ngSubmit)="getCoursier(selectedCoursier)">
-      <label>Nom :</label>
-      <input [(ngModel)]="selectedCoursier.name" name="nom" required>
+        <label>Adresse :</label>
+        <input [(ngModel)]="selectedCoursier.adress" name="adresse" [disabled]="!delOrMod" required>
 
-      <label>Adresse :</label>
-      <input [(ngModel)]="selectedCoursier.adress" name="adresse" required>
+        <label>Date de recrutement :</label>
+        <input [(ngModel)]="selectedCoursier.recruitment_date" name="recruitment_date" [disabled]="!delOrMod" required>
 
-      <label>Date de recrutement :</label>
-      <input [(ngModel)]="selectedCoursier.recruitment_date" name="recruitment_date" required>
+        <label>Numéro de téléphone :</label>
+        <input [(ngModel)]="selectedCoursier.Num_tel" name="Num_tel" [disabled]="!delOrMod" required>
 
-      <label>Numéro de téléphone :</label>
-      <input [(ngModel)]="selectedCoursier.Num_tel" name="Num_tel" required>
+        <label>Catégorie :</label>
+        <select [(ngModel)]="selectedCoursier.category_name" name="category_name" [disabled]="!delOrMod">
+            <option *ngFor="let category of categories" [value]="category.category_name">{{ category.category_name }}</option>
+        </select>
 
-      <label>Catégorie :</label>
-      <select [(ngModel)]="selectedCoursier.category_name" name="category_name">
-          <option *ngFor="let category of categories" [value]="category.category_name">{{category.category_name}}</option>
-      </select>
-      <button class="button-mod_or_del"
-      (click)="delOrMod ? updateCoursier(selectedCoursier) : deleteCoursier(selectedCoursier)">{{delOrMod ? 'Modifier' : 'Supprimer'}} un coursier
-    </button>
-  </form>
-
+        <button class="button-mod_or_del" (click)="delOrMod ? updateCoursier(selectedCoursier) : deleteCoursier(selectedCoursier)">
+            {{ delOrMod ? 'Modifier' : 'Supprimer' }} un coursier
+        </button>
+    </form>
 </div>

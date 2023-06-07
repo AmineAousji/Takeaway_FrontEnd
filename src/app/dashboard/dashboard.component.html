@@ -1,16 +1,21 @@
+<div class="search-container">
+    <input type="text" placeholder="Rechercher un restaurant..." [(ngModel)]="searchValue" />
+    <button role="button" (click)="searchOrders()">Rechercher</button>
+</div>
+
 <h1>Categories</h1>
 
 <table align="center">
     <tr>
         <th scope="col">Categories</th>
         <th scope="col">Delivery men</th>
-
     </tr>
-    <tr *ngFor="let category of categories" >
+    <tr *ngFor="let category of categories">
         <th scope="row" (click)="viewCategory(category)">{{category.category_name}}</th>
         <td (click)="viewCoursierBycategory(category)">Coursiers</td>
     </tr>
 </table>
+
 <div class="buttons-container">
     <button role="button" (click)="newCoursier()">Ajouter un Coursier</button>
     <button role="button" (click)="newCategory()">Ajouter une Catégorie</button>

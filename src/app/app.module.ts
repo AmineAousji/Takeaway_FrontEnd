@@ -22,6 +22,7 @@ import { NewcategoryComponent } from './newcategory/newcategory.component';
 import { NewuserComponent } from './newuser/newuser.component';
 import { AuthserviceService } from './authservice.service';
 import { AssignerComponent } from './assigner/assigner.component';
+import { SearchorderComponent } from './searchorder/searchorder.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { AssignerComponent } from './assigner/assigner.component';
     NewcategoryComponent,
     NewuserComponent,
     AssignerComponent,
+    SearchorderComponent,
   ],
   imports: [
     BrowserModule,

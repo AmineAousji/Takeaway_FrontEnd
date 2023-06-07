@@ -34,36 +34,35 @@
     <h2>Informations d'une commande :</h2>
 </div>
 
-<div class ="div-order" *ngIf="modifyOrderForm">
-
+<div class="div-order" *ngIf="modifyOrderForm">
     <form (ngSubmit)="getOrder(selectedOrder)">
-        <label>Customer name :</label>
-        <input [(ngModel)]="selectedOrder.name_customer" name="name_customer" required>
+        <label>Customer name:</label>
+        <input [(ngModel)]="selectedOrder.name_customer" name="name_customer" [disabled]="!delOrMod" required>
 
-        <label>Restaurant name :</label>
-        <input [(ngModel)]="selectedOrder.name_restaurant" name="name_restaurant" required>
-        
-        <label>Customer address :</label>
-        <input [(ngModel)]="selectedOrder.adress_customer" name="adress_customer" required>
-        
-        <label>Restaurant address :</label>
-        <input [(ngModel)]="selectedOrder.adress_restaurant" name="adress_restaurant" required>
+        <label>Restaurant name:</label>
+        <input [(ngModel)]="selectedOrder.name_restaurant" name="name_restaurant" [disabled]="!delOrMod" required>
 
-        <label>Price :</label>
-        <input [(ngModel)]="selectedOrder.price" name="price" required>
+        <label>Customer address:</label>
+        <input [(ngModel)]="selectedOrder.adress_customer" name="adress_customer" [disabled]="!delOrMod" required>
 
-        <label>Distance :</label>
-        <input [(ngModel)]="selectedOrder.distance" name="distance" required>
+        <label>Restaurant address:</label>
+        <input [(ngModel)]="selectedOrder.adress_restaurant" name="adress_restaurant" [disabled]="!delOrMod" required>
 
-        <label>Coursier :</label>
-        <select [(ngModel)]="selectedOrder.coursier_id" name="coursier_id">
-            <option *ngFor="let coursier of coursiers" [value]="coursier.coursier_id">{{coursier.coursier_id }}</option>
+        <label>Price:</label>
+        <input [(ngModel)]="selectedOrder.price" name="price" [disabled]="!delOrMod" required>
+
+        <label>Distance:</label>
+        <input [(ngModel)]="selectedOrder.distance" name="distance" [disabled]="!delOrMod" required>
+
+        <label>Coursier:</label>
+        <select [(ngModel)]="selectedOrder.coursier_id" name="coursier_id" [disabled]="!delOrMod">
+            <option *ngFor="let coursier of coursiers" [value]="coursier.coursier_id">{{ coursier.coursier_id }}</option>
         </select>
 
-        <button class="button-mod_or_del"
-        (click)="delOrMod ? updateOrder(selectedOrder) : deleteOrder(selectedOrder)">{{delOrMod ? 'Modifier' : 'Supprimer'}} une Commande
+        <button class="button-mod_or_del" (click)="delOrMod ? updateOrder(selectedOrder) : deleteOrder(selectedOrder)">
+            {{ delOrMod ? 'Modifier' : 'Supprimer' }} une Commande
         </button>
     </form>
-  
-  </div>
+</div>
+
   

@@ -7,8 +7,8 @@ export class Orders{
   "name_restaurant": string;
   "adress_customer": string;
   "adress_restaurant": string;
-  "price": number;
-  "distance": number;
+  "price": string;
+  "distance": string;
   "coursier_id": string;
 }
 
@@ -47,6 +47,15 @@ export class OrdersService {
   assignOrder(order_id: number, order: any, coursier_id: number){
 
     return this.http.put(this.baseUrl + 'orders/' + order_id + '/assign/' + coursier_id, order)
+  }
+
+  searchOrder(name_restaurant: string) : Observable <any>{
+    const headers = new HttpHeaders({
+      'Content-Type' : 'application/json',
+      'Authorization' : `Bearer ${localStorage.getItem('token')}`
+    })
+
+    return this.http.get(this.baseUrl + 'orders/find/' + name_restaurant, {headers:headers})
   }
 
   

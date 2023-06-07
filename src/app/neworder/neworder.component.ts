@@ -17,8 +17,8 @@ export class NeworderComponent {
     name_restaurant: '',
     adress_customer: '',
     adress_restaurant: '',
-    price:parseFloat('0') , 
-    distance: parseFloat(''),
+    price:'' , 
+    distance: '',
     coursier_id: ''
   }
 
