@@ -40,8 +40,9 @@ export class OrdersService {
   }
 
   deleteOrder(order_id: number, order: any): Observable<any>{
+   
     
-    return this.http.delete(this.baseUrl + 'orders/' +  order_id, order);
+    return this.http.delete(this.baseUrl + 'orders/' +  order_id, order, );
   }
 
   assignOrder(order_id: number, order: any, coursier_id: number){

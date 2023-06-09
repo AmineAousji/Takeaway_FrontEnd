@@ -22,11 +22,14 @@ export class CategoryService {
     return this.http.get(this.baseUrl + 'categories/list',{headers:headers});
   }
 
-  getCategory(categoryName: number): Observable <any>{
-    
-    return this.http.get(this.baseUrl + 'categories/' + categoryName);
+  getCategory(categoryName: string): Observable <any>{
+    const headers = new HttpHeaders({
+      'Content-Type' : 'application/json',
+      'Authorization' : `Bearer ${localStorage.getItem('token')}`
+    })
+    return this.http.get(this.baseUrl + 'categories/' + categoryName, {headers:headers});
   }
-  getCoursierByCategory(categoryName: number): Observable <any>{
+  getCoursierByCategory(categoryName: string): Observable <any>{
     const headers = new HttpHeaders({
       'Content-Type' : 'application/json',
       'Authorization' : `Bearer ${localStorage.getItem('token')}`
@@ -41,6 +44,13 @@ export class CategoryService {
       'Authorization' : `Bearer ${localStorage.getItem('token')}`
     })
     return this.http.post(this.baseUrl + 'categories/', category, {headers:headers});
+  }
+  modifyCategory(category_name:string, category: any): Observable <any>{
+    const headers = new HttpHeaders({
+      'Content-Type' : 'application/json',
+      'Authorization' : `Bearer ${localStorage.getItem('token')}`
+    })
+    return this.http.put(this.baseUrl + 'categories/' + category_name, category, {headers:headers});
   }
 
 }

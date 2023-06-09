@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
-import {CategoryService, Category} from '../category.service'
-import { OrdersService, Orders } from '../orders.service';
+import { CategoryService, Category } from '../category.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,44 +8,52 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-  categories: Category[] = []
-  orders: Orders[] = []
-  searchValue: string = ''
+  categories: Category[] = [];
+  searchValue: string = '';
 
-  constructor (private categoryService : CategoryService, private router:Router, private orderService: OrdersService){}
-  
+  constructor(private categoryService: CategoryService, private router: Router) {}
 
   ngOnInit() {
     this.categoryService.getCategoryList().subscribe(
       data => {
-        this.categories = data
-        console.log(this.categories)
+        this.categories = data;
+        console.log(this.categories);
       }
-    )
-  }
-  viewCategory(category:any){
-    let category_name = category.category_name;
-    console.log('category_name : ', category_name);
-    this.router.navigate(['categories',category_name]);
+    );
   }
 
-  viewCoursierBycategory(category:any){
-    let category_name = category.category_name;
-    this.router.navigate(['categories',category_name,'coursiers'])
+  viewCategory(category: any) {
+    let category_name = category.category_name; 
+    console.log('category_id : ', category_name);
+    this.router.navigate(['categories', category_name]);
   }
-  newCoursier(): void{
+
+  modifyCategory(category: any) {
+    let category_name = category.category_name; 
+    console.log('category_id : ', category_name);
+    this.router.navigate(['categories', 'modify', category_name]);
+  }
+  
+
+  viewCoursierBycategory(category: any) {
+    let category_name = category.category_name; 
+    this.router.navigate(['categories', category_name, 'coursiers']);
+  }
+
+  newCoursier(): void {
     this.router.navigate(['coursiers']);
   }
 
-  newOrder(): void{
+  newOrder(): void {
     this.router.navigate(['orders']);
   }
-  newUser(){
+
+  newUser() {
     this.router.navigate(['users']);
   }
 
-  newCategory():void{
-    this.router.navigate(['categories']);
+  newCategory(): void {
+    this.router.navigate(['categories', 'add']);
   }
 
   searchOrders() {
@@ -57,7 +64,4 @@ export class DashboardComponent {
       console.error('Empty search value');
     }
   }
-  
-
-
 }

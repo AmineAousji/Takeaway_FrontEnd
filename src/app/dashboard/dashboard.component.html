@@ -8,11 +8,13 @@
 <table align="center">
     <tr>
         <th scope="col">Categories</th>
-        <th scope="col">Delivery men</th>
+        <th scope="col">Coursiers</th>
+        <th scope="col">Modifier</th>
     </tr>
     <tr *ngFor="let category of categories">
         <th scope="row" (click)="viewCategory(category)">{{category.category_name}}</th>
         <td (click)="viewCoursierBycategory(category)">Coursiers</td>
+        <td (click)="modifyCategory(category)"><button >Modifier</button></td>
     </tr>
 </table>
 

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Category, CategoryService } from '../category.service';
-import { ActivatedRoute } from '@angular/router';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-newcategory',
@@ -9,19 +8,38 @@ import { Router } from '@angular/router';
   styleUrls: ['./newcategory.component.css']
 })
 export class NewcategoryComponent {
-  categories: Category[] = [];
+  category: Category = { category_name: '', description: '' };
+  isEditMode: boolean = false;
 
+  constructor(
+    private categoryService: CategoryService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router
+  ) {}
 
-  category: Category = {category_name:'', description:''};
-  constructor (
-    private categoryService : CategoryService,
-    private router:ActivatedRoute,
-    private routers:Router){}
+  ngOnInit() {
+    const categoryId = this.activatedRoute.snapshot.params['id'];
+    if (categoryId) {
+      this.isEditMode = true;
+      this.categoryService.getCategory(categoryId).subscribe(
+        (data) => {
+          this.category = data;
+        }
+      );
+    } else {
+      this.isEditMode = false;
+    }
+  }
 
-    addCategory(): void{
+  saveCategory(): void {
+    if (this.isEditMode) {
+      this.categoryService.modifyCategory(this.category.category_name, this.category).subscribe(() => {
+        this.router.navigate(['categories', 'list']);
+      });
+    } else {
       this.categoryService.addCategory(this.category).subscribe(() => {
-
-        this.routers.navigate(['categories/list'])
+        this.router.navigate(['categories', 'list']);
       });
     }
+  }
 }

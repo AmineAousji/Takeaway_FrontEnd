@@ -10,14 +10,20 @@ import { Router } from '@angular/router';
 })
 export class NewuserComponent {
   users: UserLogin[] = []
+  confirmPassword: string = '';
 
 
   user: UserLogin = {login: '', password: ''}
   constructor(private userService: UserService, private router: Router ) {}
 
-  addUser(): void{
+  addUser(): void {
+    if (this.user.password !== this.confirmPassword) {
+      console.error('Les mots de passe ne correspondent pas');
+      return;
+    }
     this.userService.addUser(this.user).subscribe(() => {
-    })
+      this.router.navigate(['categories/list']);
+    });
   }
 
 }
