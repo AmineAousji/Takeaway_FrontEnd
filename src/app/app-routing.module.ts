@@ -11,22 +11,23 @@ import { NewuserComponent } from './newuser/newuser.component';
 import { NewcategoryComponent } from './newcategory/newcategory.component';
 import { AssignerComponent } from './assigner/assigner.component';
 import { SearchorderComponent } from './searchorder/searchorder.component';
+import { AuthGuard } from './auth-guard.service';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: UsersComponent },
   { path: 'users', component: NewuserComponent },
-  { path: 'categories/list', component: DashboardComponent },
-  { path: 'categories/modify/:id', component: NewcategoryComponent },
-  { path: 'categories/add', component: NewcategoryComponent },
-  { path: 'coursiers/list', component: CoursierComponent },
-  { path: 'coursiers', component: NewcoursierComponent },
-  { path: 'orders', component: NeworderComponent },
-  { path: 'orders/list', component: OrdersComponent },
-  { path: 'orders/assign', component: AssignerComponent },
-  { path: 'categories/:id', component: CategoriesComponent },
-  { path: 'categories/:id/coursiers', component: CategoriesComponent },
-  { path: 'orders/:name_restaurant', component: SearchorderComponent }
+  { path: 'categories/list', component: DashboardComponent, canActivate: [AuthGuard] },
+  { path: 'categories/modify/:id', component: NewcategoryComponent, canActivate: [AuthGuard] },
+  { path: 'categories/add', component: NewcategoryComponent, canActivate: [AuthGuard] },
+  { path: 'coursiers/list', component: CoursierComponent, canActivate: [AuthGuard] },
+  { path: 'coursiers', component: NewcoursierComponent, canActivate: [AuthGuard] },
+  { path: 'orders', component: NeworderComponent, canActivate: [AuthGuard] },
+  { path: 'orders/list', component: OrdersComponent, canActivate: [AuthGuard] },
+  { path: 'orders/assign', component: AssignerComponent, canActivate: [AuthGuard] },
+  { path: 'categories/:id', component: CategoriesComponent, canActivate: [AuthGuard] },
+  { path: 'categories/:id/coursiers', component: CategoriesComponent, canActivate: [AuthGuard] },
+  { path: 'orders/:name_restaurant', component: SearchorderComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
